@@ -1,0 +1,48 @@
+{
+  "name": "base64-blob-converter",
+  "version": "1.0.0",
+  "description": "Convert base64 to Blob URL or File Object with email restrictions",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "npm run build:clean && npm run build:cjs && npm run build:esm && npm run build:types",
+    "build:clean": "rimraf dist",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:types": "tsc -p tsconfig.types.json",
+    "test": "jest",
+    "prepare": "npm run build",
+    "postinstall": "node postinstall.js"
+  },
+  "keywords": [
+    "base64",
+    "blob",
+    "converter",
+    "file"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "npm-restrict": "^1.1.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.5",
+    "@types/node": "^20.8.0",
+    "jest": "^29.7.0",
+    "rimraf": "^5.0.1",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.2.2"
+  }
+}
